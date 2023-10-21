@@ -29,7 +29,7 @@ async function mongo(){
 }
 //CORS
 import cors from 'cors'
-app.use(cors({origin: 'http://localhost:3000', credentials: true}))
+app.use(cors({origin: 'https://bioapp.onrender.com/', credentials: true}))
 //API
 
 function getDate(){
