@@ -54,6 +54,7 @@ function getDate(){
 
 //upload keypad game results
 app.post('/gameResult', bodyParser.json(), (req, res)=>{
+    console.log('/gameResult req received for ' + req.body.game)
     if(req.isAuthenticated()){
         let game = req.body.game;
         let result = req.body.result;
@@ -69,13 +70,14 @@ app.post('/gameResult', bodyParser.json(), (req, res)=>{
         User.findOneAndUpdate({ _id: req.user._id },update)
         .then(()=>{
             res.json({success: true})
+            console.log('game result added successfully')
         }).catch(err => {
-            console.log('Error updating user:', err);
+            console.log('Error uploading game result: ', err);
             res.json({success: false, message: "Couldn't upload your result. Please play again"})
         });
 
     }else{
-        console.log('user not authenticated')
+        console.log('user not authenticated on route /gameResult')
         res.json({success: false, message: 'user not authenticated. Please log in'})
     }
 })
