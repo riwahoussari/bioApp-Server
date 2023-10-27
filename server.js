@@ -33,7 +33,7 @@ async function mongo(){
 }
 //CORS
 import cors from 'cors'
-app.use(cors({origin: 'https://bioapp.onrender.com', credentials: true, exposedHeaders: 'Set-Cookie'}))
+app.use(cors({origin: 'https://bioapp.onrender.com', credentials: true, exposedHeaders: 'Set-Cookie', methods: 'GET, POST'}))
 //API
 
 function getDate(){
