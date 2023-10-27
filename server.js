@@ -17,7 +17,8 @@ app.use(session({
         sameSite: 'none',
         secure: true,
         domain: 'bioclock.onrender.com',
-        path: '/'
+        path: '/',
+        httpOnly: true
     },
     store: MongoStore.create({mongoUrl: process.env.MONGO_URL})
 }))  
