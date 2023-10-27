@@ -14,10 +14,10 @@ app.use(session({
     resave: false,
     cookie: {
         maxAge: 24 * 60 * 60 * 1000,
-        secure: true,
         domain: 'bioclock.onrender.com',
         path: '/',
-        httpOnly: true
+        secure,
+        sameSite: 'None'
     },
     store: MongoStore.create({mongoUrl: process.env.MONGO_URL})
 }))  
